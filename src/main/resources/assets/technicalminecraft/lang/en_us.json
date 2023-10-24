@@ -1,6 +1,10 @@
 {
-  "item.technicalminecraft.copper_ingot": "Copper",
+  "item.technicalminecraft.copper_ingot": "Copper Ingot",
   "item.technicalminecraft.raw_copper": "Raw Copper",
+
+  "block.technicalminecraft.copper_block": "Block of Copper",
+  "block.technicalminecraft.copper_ore": "Copper Ore",
+  "block.technicalminecraft.deepslate_copper_ore": "Deepslate Copper Ore",
 
   "itemGroup.technicaltab": "Technical Minecraft"
 }
