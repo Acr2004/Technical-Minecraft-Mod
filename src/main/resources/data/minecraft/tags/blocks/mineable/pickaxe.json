@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "technicalminecraft:copper_block",
+    "technicalminecraft:copper_ore",
+    "technicalminecraft:deepslate_copper_ore"
+  ]
+}
