@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "technicalminecraft:item/raw_copper"
+  }
+}

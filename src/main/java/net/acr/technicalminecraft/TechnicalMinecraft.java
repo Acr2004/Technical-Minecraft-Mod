@@ -1,6 +1,7 @@
 package net.acr.technicalminecraft;
 
 import com.mojang.logging.LogUtils;
+import net.acr.technicalminecraft.item.ModItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,6 +18,8 @@ public class TechnicalMinecraft {
 
     public TechnicalMinecraft() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
