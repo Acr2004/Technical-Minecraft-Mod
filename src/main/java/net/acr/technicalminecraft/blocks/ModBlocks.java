@@ -1,6 +1,7 @@
 package net.acr.technicalminecraft.blocks;
 
 import net.acr.technicalminecraft.TechnicalMinecraft;
+import net.acr.technicalminecraft.blocks.custom.JumpyBlock;
 import net.acr.technicalminecraft.item.ModCreativeModeTab;
 import net.acr.technicalminecraft.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -35,6 +36,10 @@ public class ModBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops(),
                     UniformInt.of(3, 7)), ModCreativeModeTab.TECHNICAL_TAB);
+
+    public static final RegistryObject<Block> JUMPY_BLOCK = registerBlock("jumpy_block",
+            () -> new JumpyBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.TECHNICAL_TAB);
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
