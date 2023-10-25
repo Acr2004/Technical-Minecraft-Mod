@@ -1,6 +1,7 @@
 package net.acr.technicalminecraft.blocks;
 
 import net.acr.technicalminecraft.TechnicalMinecraft;
+import net.acr.technicalminecraft.blocks.custom.CopperLampBlock;
 import net.acr.technicalminecraft.blocks.custom.JumpyBlock;
 import net.acr.technicalminecraft.item.ModCreativeModeTab;
 import net.acr.technicalminecraft.item.ModItems;
@@ -40,6 +41,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> JUMPY_BLOCK = registerBlock("jumpy_block",
             () -> new JumpyBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.TECHNICAL_TAB);
+
+    public static final RegistryObject<Block> COPPER_LAMP = registerBlock("copper_lamp",
+            () -> new CopperLampBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops()
+                    .lightLevel(state -> state.getValue(CopperLampBlock.LIT) ? 15 : 0)), ModCreativeModeTab.TECHNICAL_TAB);
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "lit=true": { "model": "technicalminecraft:block/copper_lamp_on" },
+    "lit=false": { "model": "technicalminecraft:block/copper_lamp_off" }
+  }
+}

@@ -5,11 +5,6 @@
       "item": "technicalminecraft:copper_block"
     }
   ],
-  "pattern": [
-    "###",
-    "###",
-    "###"
-  ],
   "result": {
     "item": "technicalminecraft:copper_ingot",
     "count": 9
