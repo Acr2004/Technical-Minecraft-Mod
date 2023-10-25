@@ -1,6 +1,7 @@
 package net.acr.technicalminecraft.item;
 
 import net.acr.technicalminecraft.TechnicalMinecraft;
+import net.acr.technicalminecraft.item.custom.DiceItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -16,6 +17,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TECHNICAL_TAB)));
+
+    public static final RegistryObject<Item> DICE = ITEMS.register("dice",
+            () -> new DiceItem(new Item.Properties().tab(ModCreativeModeTab.TECHNICAL_TAB).stacksTo(1)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
