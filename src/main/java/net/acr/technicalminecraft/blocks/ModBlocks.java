@@ -1,6 +1,7 @@
 package net.acr.technicalminecraft.blocks;
 
 import net.acr.technicalminecraft.TechnicalMinecraft;
+import net.acr.technicalminecraft.blocks.custom.BlueberryCropBlock;
 import net.acr.technicalminecraft.blocks.custom.CopperLampBlock;
 import net.acr.technicalminecraft.blocks.custom.JumpyBlock;
 import net.acr.technicalminecraft.item.ModCreativeModeTab;
@@ -10,6 +11,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -46,6 +48,9 @@ public class ModBlocks {
             () -> new CopperLampBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops()
                     .lightLevel(state -> state.getValue(CopperLampBlock.LIT) ? 15 : 0)), ModCreativeModeTab.TECHNICAL_TAB);
+
+    public static final RegistryObject<Block> BLUEBERRY_CROP = BLOCKS.register("blueberry_crop",
+            () -> new BlueberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

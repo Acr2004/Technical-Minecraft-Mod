@@ -2,12 +2,18 @@
   "item.technicalminecraft.copper_ingot": "Copper Ingot",
   "item.technicalminecraft.raw_copper": "Raw Copper",
   "item.technicalminecraft.dice": "Dice",
+  "item.technicalminecraft.blueberry_seeds": "Blueberry Seeds",
+  "item.technicalminecraft.blueberry": "Blueberry",
 
   "block.technicalminecraft.copper_block": "Block of Copper",
   "block.technicalminecraft.copper_ore": "Copper Ore",
   "block.technicalminecraft.deepslate_copper_ore": "Deepslate Copper Ore",
   "block.technicalminecraft.jumpy_block": "Jumpy Block",
   "block.technicalminecraft.copper_lamp": "Copper Lamp",
+  "block.technicalminecraft.blueberry_crop": "Blueberry Crop",
+
+  "entity.minecraft.villager.technicalminecraft.jumpy_master": "Jumpy Master Villager",
+
 
   "itemGroup.technicaltab": "Technical Minecraft"
 }
