@@ -16,6 +16,8 @@
 
   "entity.minecraft.villager.technicalminecraft.jumpy_master": "Jumpy Master Villager",
 
+  "itemGroup.technicaltab": "Technical Minecraft",
 
-  "itemGroup.technicaltab": "Technical Minecraft"
+  "key.category.technicalminecraft.tutorial": "Technical Minecraft",
+  "key.technicalminecraft.drink_water": "Drink Water"
 }
