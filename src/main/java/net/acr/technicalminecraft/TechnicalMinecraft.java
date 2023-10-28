@@ -3,7 +3,10 @@ package net.acr.technicalminecraft;
 import com.mojang.logging.LogUtils;
 import net.acr.technicalminecraft.blocks.ModBlocks;
 import net.acr.technicalminecraft.item.ModItems;
+import net.acr.technicalminecraft.painting.ModPaintings;
 import net.acr.technicalminecraft.villager.ModVillagers;
+import net.acr.technicalminecraft.world.feature.ModConfiguredFeatures;
+import net.acr.technicalminecraft.world.feature.ModPlacedFeatures;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,6 +30,10 @@ public class TechnicalMinecraft {
         ModBlocks.register(modEventBus);
 
         ModVillagers.register(modEventBus);
+        ModPaintings.register(modEventBus);
+
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
