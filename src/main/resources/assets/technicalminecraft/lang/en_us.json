@@ -19,5 +19,8 @@
   "itemGroup.technicaltab": "Technical Minecraft",
 
   "key.category.technicalminecraft.tutorial": "Technical Minecraft",
-  "key.technicalminecraft.drink_water": "Drink Water"
+  "key.technicalminecraft.drink_water": "Drink Water",
+
+  "message.technicalminecraft.drink_water": "Drinking Water",
+  "message.technicalminecraft.no_water": "No water nearby!"
 }

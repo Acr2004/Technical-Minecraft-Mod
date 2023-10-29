@@ -1,9 +1,10 @@
 package net.acr.technicalminecraft.event;
 
 import net.acr.technicalminecraft.TechnicalMinecraft;
+import net.acr.technicalminecraft.networking.ModMessages;
+import net.acr.technicalminecraft.networking.packet.DrinkWaterC2SPacket;
+import net.acr.technicalminecraft.networking.packet.ExampleC2SPacket;
 import net.acr.technicalminecraft.util.KeyBinding;
-import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
@@ -17,7 +18,7 @@ public class ClientEvents {
         @SubscribeEvent
         public static void onKeyInput(InputEvent.Key event) {
             if(KeyBinding.DRINKING_KEY.consumeClick()) {
-                Minecraft.getInstance().player.sendSystemMessage(Component.literal("Pressed a Key!"));
+                ModMessages.sendToServer(new DrinkWaterC2SPacket());
             }
         }
     }

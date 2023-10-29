@@ -3,6 +3,7 @@ package net.acr.technicalminecraft;
 import com.mojang.logging.LogUtils;
 import net.acr.technicalminecraft.blocks.ModBlocks;
 import net.acr.technicalminecraft.item.ModItems;
+import net.acr.technicalminecraft.networking.ModMessages;
 import net.acr.technicalminecraft.painting.ModPaintings;
 import net.acr.technicalminecraft.villager.ModVillagers;
 import net.acr.technicalminecraft.world.feature.ModConfiguredFeatures;
@@ -44,6 +45,8 @@ public class TechnicalMinecraft {
         event.enqueueWork(() -> {
            ModVillagers.registerPOIs();
         });
+
+        ModMessages.register();
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
