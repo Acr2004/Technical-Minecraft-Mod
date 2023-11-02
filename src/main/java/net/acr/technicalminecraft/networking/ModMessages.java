@@ -3,6 +3,7 @@ package net.acr.technicalminecraft.networking;
 import net.acr.technicalminecraft.TechnicalMinecraft;
 import net.acr.technicalminecraft.networking.packet.DrinkWaterC2SPacket;
 import net.acr.technicalminecraft.networking.packet.ExampleC2SPacket;
+import net.acr.technicalminecraft.networking.packet.ThirstDataSyncC2SPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -38,6 +39,11 @@ public class ModMessages {
                 .decoder(DrinkWaterC2SPacket::new)
                 .encoder(DrinkWaterC2SPacket::toBytes)
                 .consumerMainThread(DrinkWaterC2SPacket::handle)
+                .add();
+        net.messageBuilder(ThirstDataSyncC2SPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(ThirstDataSyncC2SPacket::new)
+                .encoder(ThirstDataSyncC2SPacket::toBytes)
+                .consumerMainThread(ThirstDataSyncC2SPacket::handle)
                 .add();
     }
 

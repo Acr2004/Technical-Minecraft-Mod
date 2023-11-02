@@ -4,11 +4,14 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.acr.technicalminecraft.TechnicalMinecraft;
 import net.acr.technicalminecraft.blocks.ModBlocks;
 import net.acr.technicalminecraft.item.ModItems;
+import net.acr.technicalminecraft.networking.ModMessages;
+import net.acr.technicalminecraft.networking.packet.ThirstDataSyncC2SPacket;
 import net.acr.technicalminecraft.thirst.PlayerThirst;
 import net.acr.technicalminecraft.thirst.PlayerThirstProvider;
 import net.acr.technicalminecraft.villager.ModVillagers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -19,6 +22,7 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -85,9 +89,20 @@ public class ModEvents {
             event.player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
                 if(thirst.getThirst() > 0 && event.player.getRandom().nextFloat() < 0.001f) {
                     thirst.subThirst(1);
-                    event.player.sendSystemMessage(Component.literal("Subtracted Thirst"));
+                    ModMessages.sendToPlayer(new ThirstDataSyncC2SPacket(thirst.getThirst()), ((ServerPlayer) event.player));
                 }
             });
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerJoinWorld(EntityJoinLevelEvent event) {
+        if(!event.getLevel().isClientSide()) {
+            if(event.getEntity() instanceof ServerPlayer player) {
+                player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
+                    ModMessages.sendToPlayer(new ThirstDataSyncC2SPacket(thirst.getThirst()), player);
+                });
+            }
         }
     }
 }

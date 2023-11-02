@@ -1,5 +1,6 @@
 package net.acr.technicalminecraft.networking.packet;
 
+import net.acr.technicalminecraft.networking.ModMessages;
 import net.acr.technicalminecraft.thirst.PlayerThirstProvider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.FriendlyByteBuf;
@@ -48,6 +49,7 @@ public class DrinkWaterC2SPacket {
                     thirst.addThirst(1);
                     player.sendSystemMessage(Component.literal("Current Thirst " + thirst.getThirst())
                             .withStyle(ChatFormatting.AQUA));
+                    ModMessages.sendToPlayer(new ThirstDataSyncC2SPacket(thirst.getThirst()), player);
                 });
             }
             else {
@@ -56,6 +58,7 @@ public class DrinkWaterC2SPacket {
                 player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
                     player.sendSystemMessage(Component.literal("Current Thirst " + thirst.getThirst())
                             .withStyle(ChatFormatting.AQUA));
+                    ModMessages.sendToPlayer(new ThirstDataSyncC2SPacket(thirst.getThirst()), player);
                 });
             }
         });
